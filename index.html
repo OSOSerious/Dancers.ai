@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dancer.ai - Elevate Your Dance Performance with AI Precision</title>
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #eaeaea;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+
+        .auth-buttons {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        .auth-buttons a {
+            text-decoration: none;
+            margin-left: 10px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .auth-buttons .login {
+            background: transparent;
+            color: #333;
+            border: 2px solid #333;
+        }
+
+        .auth-buttons .login:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .auth-buttons .signup {
+            background: #007BFF;
+            color: #fff;
+            border: 2px solid #007BFF;
+        }
+
+        .auth-buttons .signup:hover {
+            background: #0056b3;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            padding: 150px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .cta-buttons {
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .cta-buttons .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-buttons .primary {
+            background: #28a745;
+            color: #fff;
+        }
+
+        .cta-buttons .primary:hover {
+            background: #218838;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+
+        .cta-buttons .secondary {
+            background: #17a2b8;
+            color: #fff;
+        }
+
+        .cta-buttons .secondary:hover {
+            background: #138496;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(23, 162, 184, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .feature.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            margin-bottom: 15px;
+            color: #007BFF;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background: #e9ecef;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex-basis: calc(25% - 20px);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-number {
+            background: #007BFF;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .step p {
+            color: #666;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial .name {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-plan {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-plan:hover {
+            transform: scale(1.05);
+        }
+
+        .pricing-plan h3 {
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .pricing-plan .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .pricing-plan ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .pricing-plan ul li {
+            margin-bottom: 10px;
+        }
+
+        .pricing-plan .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-plan .btn:hover {
+            background: #0056b3;
+        }
+
+        /* About Us Section */
+        .about-us {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .about-us h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex-basis: 50%;
+            padding-right: 20px;
+        }
+
+        .about-text h3 {
+            margin-bottom: 15px;
+            color: #007BFF;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .about-image {
+            flex-basis: 45%;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            max-width: 500px;
+        }
+
+        /* Demo Video Section */
+        .demo-video {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .demo-video h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #f8f9fa;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 15px;
+            display: none;
+            background: #fff;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            padding: 80px 0;
+            background: #e9ecef;
+        }
+
+        .social-proof h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .partners {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            max-width: 150px;
+            margin: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-section .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-section .btn:hover {
+            background: #218838;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #e9ecef;
+        }
+
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Chatbot Widget */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #007BFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1001;
+        }
+
+        .chatbot-widget:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-widget i {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+        .chatbot-header {
+            background: #007BFF;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chatbot-input input {
+            flex-grow: 1;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .chatbot-input button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .auth-buttons {
+                position: static;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text, .about-image {
+                flex-basis: 100%;
+                margin-bottom: 30px;
+            }
+
+            .step {
+                flex-basis: calc(50% - 20px);
+                margin-bottom: 30px;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/150x50" alt="Dancer.ai Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="#" class="login">Login</a>
+                <a href="#" class="signup">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Elevate Your Dance Performance with AI Precision</h1>
+            <p>Real-time feedback, personalized coaching, and fair judging assistance tailored for dancers of all levels.</p>
+            <div class="cta-buttons">
+                <a href="#signup" class="btn primary">Get Started Now</a>
+                <a href="#demo" class="btn secondary">Watch Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Why Choose Dancer.ai?</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80" alt="Real-Time Computer Vision">
+                    <h3>Real-Time Computer Vision</h3>
+                    <p>Track and analyze your movements with cutting-edge pose estimation technology.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80" alt="Machine Learning Coaching">
+                    <h3>Machine Learning Coaching</h3>
+                    <p>Receive personalized training plans and targeted advice to perfect your technique.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80" alt="Judging Assistance">
+                    <h3>Judging Assistance</h3>
+                    <p>Ensure fair and unbiased scoring in competitions with our AI-based judging system.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80" alt="Ethical AI">
+                    <h3>Ethical AI</h3>
+                    <p>Transparent and unbiased algorithms that promote fairness across all dance styles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Sign Up</h3>
+                    <p>Create your account and set up your profile.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Connect Your Device</h3>
+                    <p>Use your camera or smartphone to capture your dance sessions.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Receive Feedback</h3>
+                    <p>Get instant, actionable insights to improve your performance.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your growth with our comprehensive analytics dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section class="demo-video" id="demo">
+        <div class="container">
+            <h2>See Dancer.ai in Action</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/80" alt="Sarah K.">
+                    <p>"Dancer.ai has transformed my training sessions with its real-time feedback. I've seen remarkable improvements in my technique!"</p>
+                    <p class="name">Sarah K., Professional Dancer</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/80" alt="Michael R.">
+                    <p>"As a dance instructor, Dancer.ai has become an invaluable tool in my classes. It helps me provide more accurate and personalized guidance to my students."</p>
+                    <p class="name">Michael R., Dance Instructor</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/80" alt="Emily T.">
+                    <p>"The AI judging assistance has brought a new level of fairness to our dance competitions. It's truly revolutionizing the way we evaluate performances."</p>
+                    <p class="name">Emily T., Competition Organizer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-plan">
+                    <h3>Individual</h3>
+                    <div class="price">$19/month</div>
+                    <ul>
+                        <li>Real-Time Feedback</li>
+                        <li>Basic Analytics</li>
+                        <li>Limited Sessions</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Individual</a>
+                </div>
+                <div class="pricing-plan">
+                    <h3>Coach</h3>
+                    <div class="price">$49/month</div>
+                    <ul>
+                        <li>Personalized Training Plans</li>
+                        <li>Advanced Analytics</li>
+                        <li>Multiple Dancer Profiles</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Coach</a>
+                </div>
+                <div class="pricing-plan">
+                    <h3>Studio</h3>
+                    <div class="price">$99/month</div>
+                    <ul>
+                        <li>All Coach Features</li>
+                        <li>Team Management</li>
+                        <li>Comprehensive Reporting</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Studio</a>
+                </div>
+                <div class="pricing-plan">
+                    <h3>Competition</h3>
+                    <div class="price">Contact Us</div>
+                    <ul>
+                        <li>AI Judging Assistance</li>
+                        <li>Event Management Tools</li>
+                        <li>Custom Solutions</li>
+                    </ul>
+                    <a href="#" class="btn">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>At Dancer.ai, our mission is to empower dancers with advanced AI tools to enhance their performance and ensure fair competition. We believe in the power of technology to revolutionize the dance industry, making high-quality training and unbiased judging accessible to all.</p>
+                    <h3>Our Team</h3>
+                    <p>Our team consists of passionate AI engineers, professional dancers, and industry experts who work together to bring cutting-edge technology to the world of dance. With a shared love for both technology and artistry, we're committed to pushing the boundaries of what's possible in dance training and evaluation.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x300" alt="Dancer.ai Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How accurate is the AI in detecting dance movements?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our AI utilizes state-of-the-art computer vision technology and has been trained on millions of dance movements. It achieves an accuracy rate of over 95% in detecting and analyzing dance poses and movements across various styles.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can Dancer.ai be used for any dance style?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Dancer.ai is designed to work with a wide range of dance styles, including ballet, contemporary, hip-hop, ballroom, and many more. Our AI is continuously learning and adapting to new dance forms.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does the AI judging assistance ensure fairness?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our AI judging system uses objective criteria based on technique, timing, and artistic expression. It's trained on diverse datasets to minimize bias and provides consistent scoring across all participants. Human judges can use this as a reference to ensure fair evaluations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <h2>Trusted by Leading Dance Organizations</h2>
+            <div class="partners">
+                <img src="https://via.placeholder.com/150" alt="Partner 1" class="partner-logo">
+                <img src="https://via.placeholder.com/150" alt="Partner 2" class="partner-logo">
+                <img src="https://via.placeholder.com/150" alt="Partner 3" class="partner-logo">
+                <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Dance Journey?</h2>
+            <p>Join thousands of dancers who are already experiencing the power of AI-driven training and feedback.</p>
+            <a href="#signup" class="btn primary">Start Your Free Trial</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject">
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dancer.ai. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Dancer.ai Assistant</h3>
+        </div>
+        <div class="chatbot-messages">
+            <!-- Chat messages will be dynamically added here -->
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Type your message...">
+            <button>Send</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add a class to header on scroll for styling purposes
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Simple form validation for demo purposes
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Animate features on scroll
+        const features = document.querySelectorAll('.feature');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        features.forEach(feature => {
+            observer.observe(feature);
+        });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+                icon.classList.toggle('fa-chevron-up');
+                icon.classList.toggle('fa-chevron-down');
+            });
+        });
+
+        // Chatbot functionality
+        const chatbotWidget = document.querySelector('.chatbot-widget');
+        const chatbotContainer = document.querySelector('.chatbot-container');
+        const chatbotMessages = document.querySelector('.chatbot-messages');
+        const chatbotInput = document.querySelector('.chatbot-input input');
+        const chatbotSendButton = document.querySelector('.chatbot-input button');
+
+        chatbotWidget.addEventListener('click', () => {
+            chatbotContainer.style.display = chatbotContainer.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        function addMessage(message, isUser = false) {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messageElement.style.padding = '10px 15px';
+            messageElement.style.margin = '5px 0';
+            messageElement.style.borderRadius = '10px';
+            messageElement.style.maxWidth = '80%';
+            messageElement.style.alignSelf = isUser ? 'flex-end' : 'flex-start';
+            messageElement.style.background = isUser ? '#007BFF' : '#f1f1f1';
+            messageElement.style.color = isUser ? '#fff' : '#333';
+            chatbotMessages.appendChild(messageElement);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function botResponse(message) {
+            // Simple bot responses - in a real application, this would be more sophisticated
+            const responses = {
+                'hello': 'Hello! How can I assist you with Dancer.ai today?',
+                'hi': 'Hi there! How can I help you?',
+                'pricing': 'We offer various pricing plans starting from $19/month for individuals. Would you like me to provide more details?',
+                'features': 'Dancer.ai offers real-time feedback, personalized coaching, and AI-assisted judging. Which feature would you like to know more about?',
+                'trial': 'Yes, we offer a 14-day free trial for all our plans. Would you like me to help you get started?',
+                'signup': 'You can sign up by clicking the "Sign Up" button in the header. If you need further assistance, feel free to ask!'
+            };
+
+            const lowerMessage = message.toLowerCase();
+            for (const [key, value] of Object.entries(responses)) {
+                if (lowerMessage.includes(key)) {
+                    return value;
+                }
+            }
+            return "I'm sorry, I didn't quite understand that. Can you please rephrase or ask about our features, pricing, or free trial?";
+        }
+
+        chatbotSendButton.addEventListener('click', () => {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatbotInput.value = '';
+                setTimeout(() => {
+                    addMessage(botResponse(message));
+                }, 500);
+            }
+        });
+
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                chatbotSendButton.click();
+            }
+        });
+
+        // Add initial bot message
+        addMessage('Hello! How can I help you with Dancer.ai today?');
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dancer.ai - Elevate Your Dance Performance with AI Precision</title>
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #eaeaea;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+
+        .auth-buttons {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        .auth-buttons a {
+            text-decoration: none;
+            margin-left: 10px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .auth-buttons .login {
+            background: transparent;
+            color: #333;
+            border: 2px solid #333;
+        }
+
+        .auth-buttons .login:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .auth-buttons .signup {
+            background: #007BFF;
+            color: #fff;
+            border: 2px solid #007BFF;
+        }
+
+        .auth-buttons .signup:hover {
+            background: #0056b3;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            padding: 150px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .cta-buttons {
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .cta-buttons .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-buttons .primary {
+            background: #28a745;
+            color: #fff;
+        }
+
+        .cta-buttons .primary:hover {
+            background: #218838;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+
+        .cta-buttons .secondary {
+            background: #17a2b8;
+            color: #fff;
+        }
+
+        .cta-buttons .secondary:hover {
+            background: #138496;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(23, 162, 184, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .feature.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            margin-bottom: 15px;
+            color: #007BFF;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background: #e9ecef;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex-basis: calc(25% - 20px);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-number {
+            background: #007BFF;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .step p {
+            color: #666;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial .name {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-plan {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-plan:hover {
+            transform: scale(1.05);
+        }
+
+        .pricing-plan h3 {
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .pricing-plan .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .pricing-plan ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .pricing-plan ul li {
+            margin-bottom: 10px;
+        }
+
+        .pricing-plan .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-plan .btn:hover {
+            background: #0056b3;
+        }
+
+        /* About Us Section */
+        .about-us {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .about-us h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex-basis: 50%;
+            padding-right: 20px;
+        }
+
+        .about-text h3 {
+            margin-bottom: 15px;
+            color: #007BFF;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .about-image {
+            flex-basis: 45%;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            max-width: 500px;
+        }
+
+        /* Demo Video Section */
+        .demo-video {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .demo-video h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #f8f9fa;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 15px;
+            display: none;
+            background: #fff;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            padding: 80px 0;
+            background: #e9ecef;
+        }
+
+        .social-proof h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .partners {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            max-width: 150px;
+            margin: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-section .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-section .btn:hover {
+            background: #218838;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #e9ecef;
+        }
+
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Chatbot Widget */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #007BFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1001;
+        }
+
+        .chatbot-widget:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-widget i {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+        .chatbot-header {
+            background: #007BFF;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chatbot-input input {
+            flex-grow: 1;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .chatbot-input button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .auth-buttons {
+                position: static;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text, .about-image {
+                flex-basis: 100%;
+                margin-bottom: 30px;
+            }
+
+            .step {
+                flex-basis: calc(50% - 20px);
+                margin-bottom: 30px;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/150x50" alt="Dancer.ai Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="#" class="login">Login</a>
+                <a href="#" class="signup">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Elevate Your Dance Performance with AI Precision</h1>
+            <p>Real-time feedback, personalized coaching, and fair judging assistance tailored for dancers of all levels.</p>
+            <div class="cta-buttons">
+                <a href="#signup" class="btn primary">Get Started Now</a>
+                <a href="#demo" class="btn secondary">Watch Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Why Choose Dancer.ai?</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80" alt="Real-Time Computer Vision">
+                    <h3>Real-Time Computer Vision</h3>
+                    <p>Track and analyze your movements with cutting-edge pose estimation technology.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80" alt="Machine Learning Coaching">
+                    <h3>Machine Learning Coaching</h3>
+                    <p>Receive personalized training plans and targeted advice to perfect your technique.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80" alt="Judging Assistance">
+                    <h3>Judging Assistance</h3>
+                    <p>Ensure fair and unbiased scoring in competitions with our AI-based judging system.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://via.placeholder.com/80" alt="Ethical AI">
+                    <h3>Ethical AI</h3>
+                    <p>Transparent and unbiased algorithms that promote fairness across all dance styles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Sign Up</h3>
+                    <p>Create your account and set up your profile.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Connect Your Device</h3>
+                    <p>Use your camera or smartphone to capture your dance sessions.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Receive Feedback</h3>
+                    <p>Get instant, actionable insights to improve your performance.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your growth with our comprehensive analytics dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section class="demo-video" id="demo">
+        <div class="container">
+            <h2>See Dancer.ai in Action</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/80" alt="Sarah K.">
+                    <p>"Dancer.ai has transformed my training sessions with its real-time feedback. I've seen remarkable improvements in my technique!"</p>
+                    <p class="name">Sarah K., Professional Dancer</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/80" alt="Michael R.">
+                    <p>"As a dance instructor, Dancer.ai has become an invaluable tool in my classes. It helps me provide more accurate and personalized guidance to my students."</p>
+                    <p class="name">Michael R., Dance Instructor</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/80" alt="Emily T.">
+                    <p>"The AI judging assistance has brought a new level of fairness to our dance competitions. It's truly revolutionizing the way we evaluate performances."</p>
+                    <p class="name">Emily T., Competition Organizer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-plan">
+                    <h3>Individual</h3>
+                    <div class="price">$19/month</div>
+                    <ul>
+                        <li>Real-Time Feedback</li>
+                        <li>Basic Analytics</li>
+                        <li>Limited Sessions</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Individual</a>
+                </div>
+                <div class="pricing-plan">
+                    <h3>Coach</h3>
+                    <div class="price">$49/month</div>
+                    <ul>
+                        <li>Personalized Training Plans</li>
+                        <li>Advanced Analytics</li>
+                        <li>Multiple Dancer Profiles</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Coach</a>
+                </div>
+                <div class="pricing-plan">
+                    <h3>Studio</h3>
+                    <div class="price">$99/month</div>
+                    <ul>
+                        <li>All Coach Features</li>
+                        <li>Team Management</li>
+                        <li>Comprehensive Reporting</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Studio</a>
+                </div>
+                <div class="pricing-plan">
+                    <h3>Competition</h3>
+                    <div class="price">Contact Us</div>
+                    <ul>
+                        <li>AI Judging Assistance</li>
+                        <li>Event Management Tools</li>
+                        <li>Custom Solutions</li>
+                    </ul>
+                    <a href="#" class="btn">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>At Dancer.ai, our mission is to empower dancers with advanced AI tools to enhance their performance and ensure fair competition. We believe in the power of technology to revolutionize the dance industry, making high-quality training and unbiased judging accessible to all.</p>
+                    <h3>Our Team</h3>
+                    <p>Our team consists of passionate AI engineers, professional dancers, and industry experts who work together to bring cutting-edge technology to the world of dance. With a shared love for both technology and artistry, we're committed to pushing the boundaries of what's possible in dance training and evaluation.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x300" alt="Dancer.ai Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How accurate is the AI in detecting dance movements?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our AI utilizes state-of-the-art computer vision technology and has been trained on millions of dance movements. It achieves an accuracy rate of over 95% in detecting and analyzing dance poses and movements across various styles.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can Dancer.ai be used for any dance style?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Dancer.ai is designed to work with a wide range of dance styles, including ballet, contemporary, hip-hop, ballroom, and many more. Our AI is continuously learning and adapting to new dance forms.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does the AI judging assistance ensure fairness?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our AI judging system uses objective criteria based on technique, timing, and artistic expression. It's trained on diverse datasets to minimize bias and provides consistent scoring across all participants. Human judges can use this as a reference to ensure fair evaluations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <h2>Trusted by Leading Dance Organizations</h2>
+            <div class="partners">
+                <img src="https://via.placeholder.com/150" alt="Partner 1" class="partner-logo">
+                <img src="https://via.placeholder.com/150" alt="Partner 2" class="partner-logo">
+                <img src="https://via.placeholder.com/150" alt="Partner 3" class="partner-logo">
+                <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Dance Journey?</h2>
+            <p>Join thousands of dancers who are already experiencing the power of AI-driven training and feedback.</p>
+            <a href="#signup" class="btn primary">Start Your Free Trial</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject">
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dancer.ai. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Dancer.ai Assistant</h3>
+        </div>
+        <div class="chatbot-messages">
+            <!-- Chat messages will be dynamically added here -->
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Type your message...">
+            <button>Send</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add a class to header on scroll for styling purposes
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Simple form validation for demo purposes
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Animate features on scroll
+        const features = document.querySelectorAll('.feature');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        features.forEach(feature => {
+            observer.observe(feature);
+        });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+                icon.classList.toggle('fa-chevron-up');
+                icon.classList.toggle('fa-chevron-down');
+            });
+        });
+
+        // Chatbot functionality
+        const chatbotWidget = document.querySelector('.chatbot-widget');
+        const chatbotContainer = document.querySelector('.chatbot-container');
+        const chatbotMessages = document.querySelector('.chatbot-messages');
+        const chatbotInput = document.querySelector('.chatbot-input input');
+        const chatbotSendButton = document.querySelector('.chatbot-input button');
+
+        chatbotWidget.addEventListener('click', () => {
+            chatbotContainer.style.display = chatbotContainer.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        function addMessage(message, isUser = false) {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messageElement.style.padding = '10px 15px';
+            messageElement.style.margin = '5px 0';
+            messageElement.style.borderRadius = '10px';
+            messageElement.style.maxWidth = '80%';
+            messageElement.style.alignSelf = isUser ? 'flex-end' : 'flex-start';
+            messageElement.style.background = isUser ? '#007BFF' : '#f1f1f1';
+            messageElement.style.color = isUser ? '#fff' : '#333';
+            chatbotMessages.appendChild(messageElement);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function botResponse(message) {
+            // Simple bot responses - in a real application, this would be more sophisticated
+            const responses = {
+                'hello': 'Hello! How can I assist you with Dancer.ai today?',
+                'hi': 'Hi there! How can I help you?',
+                'pricing': 'We offer various pricing plans starting from $19/month for individuals. Would you like me to provide more details?',
+                'features': 'Dancer.ai offers real-time feedback, personalized coaching, and AI-assisted judging. Which feature would you like to know more about?',
+                'trial': 'Yes, we offer a 14-day free trial for all our plans. Would you like me to help you get started?',
+                'signup': 'You can sign up by clicking the "Sign Up" button in the header. If you need further assistance, feel free to ask!'
+            };
+
+            const lowerMessage = message.toLowerCase();
+            for (const [key, value] of Object.entries(responses)) {
+                if (lowerMessage.includes(key)) {
+                    return value;
+                }
+            }
+            return "I'm sorry, I didn't quite understand that. Can you please rephrase or ask about our features, pricing, or free trial?";
+        }
+
+        chatbotSendButton.addEventListener('click', () => {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatbotInput.value = '';
+                setTimeout(() => {
+                    addMessage(botResponse(message));
+                }, 500);
+            }
+        });
+
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                chatbotSendButton.click();
+            }
+        });
+
+        // Add initial bot message
+        addMessage('Hello! How can I help you with Dancer.ai today?');
+    </script>
+</body>
+</html>
