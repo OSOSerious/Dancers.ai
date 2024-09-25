@@ -363,13 +363,14 @@
         <div class="container">
             <h2>Stay Updated with Dancers.AI</h2>
             <p>Subscribe to our newsletter to receive the latest news, updates, and exclusive insights into how technology is transforming the performing arts.</p>
-            <form class="newsletter-form" onsubmit="submitNewsletter(event)">
-                <input type="text" name="firstName" placeholder="First Name" required>
-                <input type="text" name="lastName" placeholder="Last Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
+            <form class="newsletter-form" action="https://YOUR_MAILCHIMP_FORM_URL" method="POST" target="_blank">
+                <input type="text" name="FNAME" placeholder="First Name" required>
+                <input type="text" name="LNAME" placeholder="Last Name" required>
+                <input type="email" name="EMAIL" placeholder="Email Address" required>
+                <input type="tel" name="PHONE" placeholder="Phone Number" required>
                 <button type="submit">Subscribe</button>
             </form>
+            <p style="margin-top:20px;">To stay informed on T3's development, please subscribe to Momentum Stage's newsletter: <a href="https://www.momentumstage.org/contact" class="external-link" target="_blank">Momentum Stage Contact</a>.</p>
         </div>
     </section>
 
@@ -399,23 +400,7 @@
 
     <!-- Scripts -->
     <script>
-        // Newsletter Form Submission
-        function submitNewsletter(event) {
-            event.preventDefault();
-            const form = event.target;
-            const firstName = form.firstName.value.trim();
-            const lastName = form.lastName.value.trim();
-            const email = form.email.value.trim();
-            const phone = form.phone.value.trim();
-
-            if (firstName && lastName && email && phone) {
-                // Here you can add code to handle form submission, e.g., send data to a server
-                alert('Thank you for subscribing to our newsletter!');
-                form.reset();
-            } else {
-                alert('Please fill in all the fields.');
-            }
-        }
+        // Optional: Additional JavaScript can be added here if needed
     </script>
 </body>
 </html>
