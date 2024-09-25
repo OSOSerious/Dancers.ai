@@ -14,7 +14,8 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
+            background-color: #0d0d0d;
+            color: #f0f0f0;
         }
 
         .container {
@@ -25,9 +26,9 @@
 
         /* Header */
         header {
-            background: #fff;
+            background: #1a1a1a;
             padding: 20px 0;
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid #333;
             text-align: center;
         }
 
@@ -44,18 +45,18 @@
 
         nav ul li a {
             text-decoration: none;
-            color: #333;
+            color: #f0f0f0;
             font-weight: bold;
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            color: #007BFF;
+            color: #ff4081;
         }
 
         /* Hero Section */
         .hero {
-            background: #f0f0f0;
+            background: linear-gradient(to bottom right, #1a1a1a, #2e2e2e);
             padding: 80px 0;
             text-align: center;
         }
@@ -63,19 +64,26 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
+            color: #ff4081;
         }
 
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
+            color: #cccccc;
         }
 
         .cta-button {
             padding: 12px 24px;
-            background: #007BFF;
+            background: #ff4081;
             color: #fff;
             text-decoration: none;
             border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #e73370;
         }
 
         /* Sections */
@@ -87,11 +95,12 @@
             text-align: center;
             margin-bottom: 40px;
             font-size: 2rem;
+            color: #ff4081;
         }
 
         section p {
             margin-bottom: 20px;
-            color: #555;
+            color: #cccccc;
             text-align: justify;
         }
 
@@ -109,31 +118,61 @@
 
         .feature h3, .school h3, .project h3 {
             margin-bottom: 15px;
-            color: #007BFF;
+            color: #ff4081;
         }
 
         .feature p, .school p, .project p {
-            color: #555;
+            color: #cccccc;
         }
 
-        /* News Section */
-        .news-article {
-            margin-bottom: 40px;
+        /* Newsletter Signup */
+        .newsletter {
+            background: #1a1a1a;
+            padding: 60px 0;
+            text-align: center;
         }
 
-        .news-article h3 {
-            margin-bottom: 10px;
-            color: #007BFF;
+        .newsletter h2 {
+            color: #ff4081;
+            margin-bottom: 20px;
         }
 
-        .news-article p {
-            margin-bottom: 10px;
-            color: #555;
+        .newsletter p {
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .newsletter-form button {
+            padding: 10px 20px;
+            background: #ff4081;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #e73370;
         }
 
         /* Link Style */
         .external-link {
-            color: #007BFF;
+            color: #ff4081;
             text-decoration: none;
             font-weight: bold;
         }
@@ -144,10 +183,11 @@
 
         /* Footer */
         footer {
-            background: #333;
-            color: #fff;
+            background: #1a1a1a;
+            color: #f0f0f0;
             text-align: center;
             padding: 20px 0;
+            border-top: 1px solid #333;
         }
 
         /* Responsive */
@@ -158,6 +198,20 @@
 
             .feature, .school, .project {
                 flex: 0 0 100%;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form input[type="email"] {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-form button {
+                width: 100%;
             }
 
             .hero h1 {
@@ -176,8 +230,6 @@
                 <li><a href="#schools">Schools</a></li>
                 <li><a href="#technology">Technology</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#future">Future</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -196,7 +248,7 @@
     <section id="about">
         <div class="container">
             <h2>The Doris Duke Foundation and the Performing Arts Technologies Lab</h2>
-            <p>The Performing Arts Technologies Lab is an initiative by the Doris Duke Foundation, awarding grants to 20 innovative projects that explore how technology—especially AI—can enhance performing arts like theater, jazz, contemporary dance, and multi-disciplinary performances.</p>
+            <p>The Doris Duke Foundation announced grants to 20 innovative theater, jazz, contemporary dance, and multi-disciplinary projects through its inaugural Performing Arts Technologies Lab on September 25, 2024. Artists, technologists, and arts organizations receive funding and support to develop new uses for digital technologies across the performing arts.</p>
             <p>For full details, visit the <a href="https://www.dorisduke.org/news--insights/articles/doris-duke-foundation-announces-grants-to-20-innovative-theater-jazz-contemporary-dance-and-multi-disciplinary-projects-through-its-inaugural-performing-arts-technologies-lab/" class="external-link" target="_blank">Doris Duke Foundation's announcement</a>.</p>
         </div>
     </section>
@@ -205,17 +257,7 @@
     <section id="grants">
         <div class="container">
             <h2>Grants and Support for Innovation</h2>
-            <p>The Lab supports projects integrating technology into performing arts, offering grants that foster experimentation with digital tools. Artists collaborate with technologists to explore new ways of storytelling, performance, and audience engagement.</p>
-            <div class="features">
-                <div class="feature">
-                    <h3>Funding for AI Integration</h3>
-                    <p>Grants are provided to projects that utilize AI to revolutionize dance and other performing arts.</p>
-                </div>
-                <div class="feature">
-                    <h3>Support for Emerging Technologies</h3>
-                    <p>Encouraging the use of VR, AR, motion capture, and more to create transformative performance experiences.</p>
-                </div>
-            </div>
+            <p>The Performing Arts Technologies Lab supports projects that integrate technology into the performing arts, offering grants to foster experimentation with digital tools. The grant provides opportunities for artists to work with technologists to explore new ways of storytelling, performance, and audience engagement.</p>
         </div>
     </section>
 
@@ -226,15 +268,15 @@
             <div class="schools">
                 <div class="school">
                     <h3>The Juilliard School</h3>
-                    <p>Exploring AI and motion-tracking technologies to assist dancers in choreography creation, technique enhancement, and performance analytics.</p>
+                    <p>Exploring how AI and motion-tracking technologies can assist dancers in choreography creation, technique enhancement, and performance analytics.</p>
                 </div>
                 <div class="school">
                     <h3>California Institute of the Arts (CalArts)</h3>
-                    <p>Investigating VR and AR to create immersive dance environments where performers interact with digital counterparts.</p>
+                    <p>Investigating how VR and AR can create immersive dance environments where performers interact with digital counterparts.</p>
                 </div>
                 <div class="school">
                     <h3>New York University (NYU)</h3>
-                    <p>Combining theater, dance, and music with AI, robotics, and multimedia storytelling to enhance audience engagement and artistic expression.</p>
+                    <p>Combining theater, dance, and music with technologies like AI, robotics, and multimedia storytelling to enhance audience engagement and artistic expression.</p>
                 </div>
             </div>
         </div>
@@ -245,16 +287,6 @@
         <div class="container">
             <h2>Technological Impact on Performing Arts</h2>
             <p>AI is reshaping dance by assisting in choreography, analyzing motion patterns, and providing real-time feedback. Cross-disciplinary collaborations are creating rich, multi-disciplinary works that integrate dancers, musicians, and technologists.</p>
-            <div class="features">
-                <div class="feature">
-                    <h3>AI and Dance</h3>
-                    <p>Dancers.AI showcases how technology revolutionizes dance by helping artists create complex choreographies and optimize performances.</p>
-                </div>
-                <div class="feature">
-                    <h3>Artistic Innovation</h3>
-                    <p>Using AI-generated music that adapts to live dancers or robotic set designs that respond to movements, pushing the boundaries of performance.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -265,74 +297,27 @@
             <div class="projects">
                 <div class="project">
                     <h3>About Totentanz (T3)</h3>
-                    <p>Totentanz, also known as T3, is an innovative use of pose estimation and facial recognition technologies designed to prevent AI theft and unauthorized training that occurs without choreographer and dancer consent.</p>
+                    <p>Totentanz, also known as T3, is a new use of pose estimation and facial recognition technologies to decrease AI theft and training that occurs without choreographer and dancer consent. This innovative solution aims to increase ownership and creative agency of artists.</p>
                 </div>
                 <div class="project">
                     <h3>Our Team and Sponsorship</h3>
-                    <p>This solution was devised by Pedram Nimreezi, an AI engineer, and Nicole Perry, a dance and theatre artist. Momentum Stage is sponsoring the project, and it is funded through the inaugural Performing Arts Technologies Lab grant from the Doris Duke Charitable Foundation.</p>
+                    <p>This solution was devised by <strong>Pedram Nimreezi</strong>, an AI engineer, and <strong>Nicole Perry</strong>, a dance and theatre artist. <strong>Momentum Stage</strong> is sponsoring the project, and it is funded through the inaugural “Performing Arts and Technologies Lab” grant from the Doris Duke Charitable Foundation.</p>
                 </div>
             </div>
             <p>To stay informed on T3's development, please subscribe to Momentum Stage's newsletter: <a href="https://www.momentumstage.org/contact" class="external-link" target="_blank">Momentum Stage Contact</a>.</p>
+            <p>A link to our press release will be added once it's approved.</p>
         </div>
     </section>
 
-    <!-- News Section -->
-    <section id="news">
+    <!-- Newsletter Signup Section -->
+    <section class="newsletter" id="newsletter">
         <div class="container">
-            <h2>Latest News</h2>
-            <div class="news-article">
-                <h3>Doris Duke Foundation Announces Grants to 20 Innovative Projects</h3>
-                <p><strong>September 25, 2024</strong></p>
-                <p>The Doris Duke Foundation announced grants through its inaugural Performing Arts Technologies Lab, supporting 20 pioneering artists, technologists, and arts organizations. These grants aim to develop new uses for digital technologies across the performing arts.</p>
-                <p><em>"Today is an important milestone for the Doris Duke Foundation as we proudly recognize these remarkable artists and organizations who have looked beyond their own challenges in search of solutions to meet the needs of an entire industry,"</em> said Sam Gill, president and CEO of the Doris Duke Foundation.</p>
-                <p>The selected projects tackle a wide range of opportunities in how the performing arts are produced, distributed, and consumed, including:</p>
-                <ul>
-                    <li>Exploring the use of emerging technologies such as artificial intelligence in creating, presenting, experiencing, and preserving works across the performing arts, particularly among artists representing underserved populations and cultures.</li>
-                    <li>Enabling artists and audience members with disabilities to further access, create, and engage with art through the development of new digital tools.</li>
-                    <li>Preserving inherently ephemeral works in the performing arts through new archiving technologies, fulfilling a need that is especially acute for Black, Indigenous, and People of Color (BIPOC) artists.</li>
-                    <li>Pursuing field-wide solutions to pressing issues such as capital needs.</li>
-                </ul>
-                <p><em>"The more than 700 applications we received for this program sent us a clear message: performing artists are ready and excited to push the boundaries of what technology can do. They are asking critical questions about open-source approaches, accessibility, and representation. Our goal is to help these innovators do what artists do best—bringing new, powerful experiences to audiences."</em> — Ashley Ferro-Murray, Doris Duke Foundation Arts Program Director.</p>
-            </div>
-            <div class="news-article">
-                <h3>Grant Recipients in the Inaugural Performing Arts Technologies Lab</h3>
-                <p>The following are some of the grant recipients:</p>
-                <!-- List of grant recipients and project descriptions -->
-                <ul>
-                    <li>
-                        <strong>Alaska Native Heritage Center, Anchorage, AK – Dance</strong><br>
-                        <em>Yuraq Project</em><br>
-                        The Yuraq Project seeks to use motion capture technology to develop 3D asset files that will be incorporated into XR programs on-site at the Alaska Native Heritage Center.
-                    </li>
-                    <!-- Additional grant recipients can be added here in similar format -->
-                    <li>
-                        <strong>Momentum Stage, Inc. with Nicole Perry, Pedram Nimreezi, and Ed Talavera, Plantation, FL – Dance</strong><br>
-                        <em>Totentanz: Creative Performance Protection (aka T3)</em><br>
-                        Totentanz (aka T3) is a new use of pose estimation and facial recognition technologies to decrease AI theft and training that occurs without choreographer and dancer consent.
-                    </li>
-                    <!-- Continue listing other recipients as needed -->
-                </ul>
-                <p>For the full list of grant recipients and detailed project descriptions, please visit the <a href="https://www.dorisduke.org/news--insights/articles/doris-duke-foundation-announces-grants-to-20-innovative-theater-jazz-contemporary-dance-and-multi-disciplinary-projects-through-its-inaugural-performing-arts-technologies-lab/" class="external-link" target="_blank">Doris Duke Foundation's official announcement</a>.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Future Section -->
-    <section id="future">
-        <div class="container">
-            <h2>The Future of Dance and Technology</h2>
-            <p>Dancers.AI is at the forefront of transforming the performing arts, offering tools that redefine the creative process to be more collaborative, data-driven, and accessible.</p>
-            <p>As AI democratizes access to dance tools, performers worldwide can collaborate remotely, generating new choreography and sharing performances without physical constraints.</p>
-            <div class="features">
-                <div class="feature">
-                    <h3>Global Collaboration</h3>
-                    <p>Connecting artists across the globe to create and innovate together in real-time.</p>
-                </div>
-                <div class="feature">
-                    <h3>Preservation and Accessibility</h3>
-                    <p>Using technology to preserve dance traditions and make performing arts more accessible to diverse audiences.</p>
-                </div>
-            </div>
+            <h2>Stay Updated with Dancers.AI</h2>
+            <p>Subscribe to our newsletter to receive the latest news, updates, and exclusive insights into how technology is transforming dance.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
     </section>
 
@@ -358,5 +343,22 @@
     <footer>
         <p>&copy; 2024 Dancers.AI. All rights reserved.</p>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Newsletter Form Submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            if (email) {
+                alert('Thank you for subscribing to our newsletter!');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
 </body>
 </html>
