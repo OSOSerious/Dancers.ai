@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dancers.AI - Elevating Dance Through Technology</title>
+    <title>Totentanz (T3) - Elevating Performing Arts Through Technology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Basic Reset and Styles */
+        /* Reset and Basic Styles */
         * {
             margin: 0;
             padding: 0;
@@ -12,24 +13,34 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            background-color: #0d0d0d;
-            color: #f0f0f0;
+            background-color: #2E004F; /* Deep Indigo */
+            color: #ECF0F1; /* Light Gray */
+        }
+
+        a {
+            color: #1ABC9C; /* Vibrant Teal */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #FF6B6B; /* Coral */
         }
 
         .container {
             width: 90%;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
+            padding: 20px 0;
         }
 
         /* Header */
         header {
-            background: #1a1a1a;
+            background-color: #1A001F; /* Darker Indigo */
             padding: 20px 0;
-            border-bottom: 1px solid #333;
-            text-align: center;
+            border-bottom: 2px solid #1ABC9C;
         }
 
         nav ul {
@@ -40,50 +51,49 @@
         }
 
         nav ul li {
-            margin: 10px 15px;
+            margin: 10px 20px;
         }
 
         nav ul li a {
-            text-decoration: none;
-            color: #f0f0f0;
+            font-size: 1rem;
             font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #ff4081;
+            color: #ECF0F1;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(to bottom right, #1a1a1a, #2e2e2e);
-            padding: 80px 0;
+            background: linear-gradient(135deg, #1A001F, #2E004F);
+            padding: 100px 0;
             text-align: center;
+            position: relative;
+            color: #F1C40F; /* Gold */
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
-            color: #ff4081;
+            color: #FF6B6B; /* Coral */
         }
 
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            color: #cccccc;
+            color: #ECF0F1;
         }
 
-        .cta-button {
-            padding: 12px 24px;
-            background: #ff4081;
+        .hero .cta-button {
+            padding: 15px 30px;
+            background-color: #FF6B6B; /* Coral */
             color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background 0.3s;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .cta-button:hover {
-            background: #e73370;
+        .hero .cta-button:hover {
+            background-color: #E55A5A;
         }
 
         /* Sections */
@@ -94,142 +104,178 @@
         section h2 {
             text-align: center;
             margin-bottom: 40px;
-            font-size: 2rem;
-            color: #ff4081;
+            font-size: 2.5rem;
+            color: #9B59B6; /* Soft Lilac */
         }
 
         section p {
             margin-bottom: 20px;
-            color: #cccccc;
+            color: #ECF0F1;
             text-align: justify;
+            line-height: 1.8;
         }
 
-        /* Features */
-        .features, .schools, .projects {
+        /* Features and Projects */
+        .grid {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            gap: 20px;
+            justify-content: center;
         }
 
-        .feature, .school, .project {
-            flex: 0 0 48%;
-            margin-bottom: 40px;
+        .grid-item {
+            background-color: #1A001F;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            max-width: 350px;
         }
 
-        .feature h3, .school h3, .project h3 {
+        .grid-item h3 {
             margin-bottom: 15px;
-            color: #ff4081;
+            color: #1ABC9C; /* Vibrant Teal */
         }
 
-        .feature p, .school p, .project p {
-            color: #cccccc;
+        .grid-item p {
+            color: #ECF0F1;
         }
 
         /* Newsletter Signup */
         .newsletter {
-            background: #1a1a1a;
+            background-color: #1A001F;
             padding: 60px 0;
             text-align: center;
         }
 
         .newsletter h2 {
-            color: #ff4081;
             margin-bottom: 20px;
+            font-size: 2rem;
+            color: #FF6B6B; /* Coral */
         }
 
         .newsletter p {
-            color: #cccccc;
             margin-bottom: 30px;
+            color: #ECF0F1;
         }
 
         .newsletter-form {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
 
-        .newsletter-form input[type="email"] {
-            padding: 10px;
-            width: 300px;
+        .newsletter-form input[type="text"],
+        .newsletter-form input[type="email"],
+        .newsletter-form input[type="tel"] {
+            padding: 10px 15px;
             border: none;
-            border-radius: 4px;
-            margin-right: 10px;
+            border-radius: 5px;
+            width: 200px;
+            max-width: 100%;
         }
 
         .newsletter-form button {
             padding: 10px 20px;
-            background: #ff4081;
+            background-color: #1ABC9C; /* Vibrant Teal */
             color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .newsletter-form button:hover {
-            background: #e73370;
-        }
-
-        /* Link Style */
-        .external-link {
-            color: #ff4081;
-            text-decoration: none;
+            transition: background-color 0.3s;
             font-weight: bold;
         }
 
-        .external-link:hover {
-            text-decoration: underline;
+        .newsletter-form button:hover {
+            background-color: #17A589;
+        }
+
+        /* Call to Action */
+        .call-to-action {
+            background: linear-gradient(135deg, #9B59B6, #1ABC9C);
+            padding: 60px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .call-to-action h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #FF6B6B; /* Coral */
+        }
+
+        .call-to-action p {
+            margin-bottom: 30px;
+            color: #ECF0F1;
+        }
+
+        .call-to-action .cta-button {
+            padding: 15px 30px;
+            background-color: #FF6B6B; /* Coral */
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .call-to-action .cta-button:hover {
+            background-color: #E55A5A;
         }
 
         /* Footer */
         footer {
-            background: #1a1a1a;
-            color: #f0f0f0;
+            background-color: #1A001F;
+            color: #ECF0F1;
             text-align: center;
             padding: 20px 0;
-            border-top: 1px solid #333;
+            border-top: 2px solid #1ABC9C;
         }
 
-        /* Responsive */
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .features, .schools, .projects {
+            nav ul {
                 flex-direction: column;
-            }
-
-            .feature, .school, .project {
-                flex: 0 0 100%;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .newsletter-form input[type="email"] {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            .newsletter-form button {
-                width: 100%;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
             }
+
+            .grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input[type="text"],
+            .newsletter-form input[type="email"],
+            .newsletter-form input[type="tel"],
+            .newsletter-form button {
+                width: 80%;
+            }
         }
     </style>
 </head>
 <body>
+
     <!-- Header -->
     <header>
         <nav class="container">
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#grants">Grants</a></li>
-                <li><a href="#schools">Schools</a></li>
+                <li><a href="#about">About T3</a></li>
+                <li><a href="#grant">Grant</a></li>
                 <li><a href="#technology">Technology</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#finalists">Finalists</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -238,47 +284,35 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Elevating Dance Through Technology</h1>
-            <p>Integrating AI and innovative technologies to transform the world of performing arts.</p>
-            <a href="#contact" class="cta-button">Join the AI Dance Revolution</a>
+            <h1>Totentanz (T3)</h1>
+            <p>Increasing the Creative Agency of Artists through Advanced Technology</p>
+            <button class="cta-button" onclick="document.getElementById('newsletter').scrollIntoView();">Subscribe Now</button>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About T3 Section -->
     <section id="about">
         <div class="container">
-            <h2>The Doris Duke Foundation and the Performing Arts Technologies Lab</h2>
-            <p>The Doris Duke Foundation announced grants to 20 innovative theater, jazz, contemporary dance, and multi-disciplinary projects through its inaugural Performing Arts Technologies Lab on September 25, 2024. Artists, technologists, and arts organizations receive funding and support to develop new uses for digital technologies across the performing arts.</p>
-            <p>For full details, visit the <a href="https://www.dorisduke.org/news--insights/articles/doris-duke-foundation-announces-grants-to-20-innovative-theater-jazz-contemporary-dance-and-multi-disciplinary-projects-through-its-inaugural-performing-arts-technologies-lab/" class="external-link" target="_blank">Doris Duke Foundation's announcement</a>.</p>
-        </div>
-    </section>
-
-    <!-- Grants Section -->
-    <section id="grants">
-        <div class="container">
-            <h2>Grants and Support for Innovation</h2>
-            <p>The Performing Arts Technologies Lab supports projects that integrate technology into the performing arts, offering grants to foster experimentation with digital tools. The grant provides opportunities for artists to work with technologists to explore new ways of storytelling, performance, and audience engagement.</p>
-        </div>
-    </section>
-
-    <!-- Schools Section -->
-    <section id="schools">
-        <div class="container">
-            <h2>Schools and Organizations Involved</h2>
-            <div class="schools">
-                <div class="school">
-                    <h3>The Juilliard School</h3>
-                    <p>Exploring how AI and motion-tracking technologies can assist dancers in choreography creation, technique enhancement, and performance analytics.</p>
+            <h2>About Totentanz (T3)</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <h3>What is Totentanz?</h3>
+                    <p>Totentanz (T3) leverages pose estimation and facial recognition technologies to prevent AI theft and unauthorized training of AI models without the consent of choreographers and dancers. Developed by AI engineer Pedram Nimreezi and dance artist Nicole Perry, T3 empowers artists by safeguarding their creative works.</p>
                 </div>
-                <div class="school">
-                    <h3>California Institute of the Arts (CalArts)</h3>
-                    <p>Investigating how VR and AR can create immersive dance environments where performers interact with digital counterparts.</p>
-                </div>
-                <div class="school">
-                    <h3>New York University (NYU)</h3>
-                    <p>Combining theater, dance, and music with technologies like AI, robotics, and multimedia storytelling to enhance audience engagement and artistic expression.</p>
+                <div class="grid-item">
+                    <h3>Our Mission</h3>
+                    <p>The goal of Totentanz is to enhance the ownership and creative agency of artists. By providing tools and a platform for choreographers to store and share their videos securely, T3 ensures that their intellectual property is protected while still promoting access to dance performances globally through dancers.ai (coming March 2025).</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Grant Section -->
+    <section id="grant">
+        <div class="container">
+            <h2>Performing Arts Technologies Lab Grant</h2>
+            <p>The Performing Arts Technologies Lab, funded by the Doris Duke Charitable Foundation, is a grant and support system designed to expand access and nurture new methods for creating, sharing, and experiencing performing arts. Momentum Stage sponsors the T3 project under this initiative.</p>
+            <p>Applications for the 2024 Lab are now closed. The Lab supports innovative ideas in jazz, contemporary dance, and theater that utilize new digital tools and production methods.</p>
         </div>
     </section>
 
@@ -286,25 +320,47 @@
     <section id="technology">
         <div class="container">
             <h2>Technological Impact on Performing Arts</h2>
-            <p>AI is reshaping dance by assisting in choreography, analyzing motion patterns, and providing real-time feedback. Cross-disciplinary collaborations are creating rich, multi-disciplinary works that integrate dancers, musicians, and technologists.</p>
+            <p>AI and emerging technologies are revolutionizing the performing arts by assisting in choreography, analyzing motion patterns, and providing real-time feedback. Totentanz (T3) exemplifies this transformation by protecting artists' creative works while enhancing performance analytics and audience engagement.</p>
+            <p>Through cross-disciplinary collaborations, projects like T3 are creating rich, multi-disciplinary works that integrate dancers, musicians, and technologists to push the boundaries of artistic expression.</p>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
+    <!-- Finalists Section -->
+    <section id="finalists">
+        <div class="container">
+            <h2>Finalists for the 2024 Performing Arts Technologies Lab</h2>
+            <div class="grid">
+                <!-- Example of Finalist Entries -->
+                <div class="grid-item">
+                    <h3>Alaska Native Heritage Center - Dance</h3>
+                    <p>Innovative dance projects that incorporate traditional and modern techniques with cutting-edge technology.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Alley Theatre, Houston, TX - Theater</h3>
+                    <p>Exploring new digital storytelling methods to enhance theatrical performances.</p>
+                </div>
+                <!-- Add more finalists as needed -->
+                <!-- You can continue adding all 40 finalists similarly -->
+                <!-- For brevity, only a few are shown here -->
+            </div>
+            <p>The Doris Duke Foundation will announce its list of Lab grantees in September 2024.</p>
+        </div>
+    </section>
+
+    <!-- Featured Project: Totentanz (T3) -->
+    <section id="featured-project">
         <div class="container">
             <h2>Featured Project: Totentanz (T3)</h2>
-            <div class="projects">
-                <div class="project">
-                    <h3>About Totentanz (T3)</h3>
-                    <p>Totentanz, also known as T3, is a new use of pose estimation and facial recognition technologies to decrease AI theft and training that occurs without choreographer and dancer consent. This innovative solution aims to increase ownership and creative agency of artists.</p>
-                </div>
-                <div class="project">
+            <div class="grid">
+                <div class="grid-item">
                     <h3>Our Team and Sponsorship</h3>
-                    <p>This solution was devised by <strong>Pedram Nimreezi</strong>, an AI engineer, and <strong>Nicole Perry</strong>, a dance and theatre artist. <strong>Momentum Stage</strong> is sponsoring the project, and it is funded through the inaugural “Performing Arts and Technologies Lab” grant from the Doris Duke Charitable Foundation.</p>
+                    <p>Totentanz was developed by <strong>Pedram Nimreezi</strong>, an AI engineer, and <strong>Nicole Perry</strong>, a dance and theatre artist. Filmmaker Ed Talavera supports the initial research and development by filming dances to create the T3 data set. Momentum Stage sponsors the project under the Performing Arts Technologies Lab grant.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Our Vision</h3>
+                    <p>T3 aims to protect creators, performances, and performers by providing a secure platform for storing and sharing dance videos. This ensures that choreographers can promote their work globally while maintaining their creative agency and intellectual property rights.</p>
                 </div>
             </div>
-            <p>To stay informed on T3's development, please subscribe to Momentum Stage's newsletter: <a href="https://www.momentumstage.org/contact" class="external-link" target="_blank">Momentum Stage Contact</a>.</p>
             <p>A link to our press release will be added once it's approved.</p>
         </div>
     </section>
@@ -312,21 +368,24 @@
     <!-- Newsletter Signup Section -->
     <section class="newsletter" id="newsletter">
         <div class="container">
-            <h2>Stay Updated with Dancers.AI</h2>
-            <p>Subscribe to our newsletter to receive the latest news, updates, and exclusive insights into how technology is transforming dance.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email address" required>
+            <h2>Stay Updated with Totentanz (T3)</h2>
+            <p>Subscribe to our newsletter to receive the latest news, updates, and exclusive insights into how technology is transforming the performing arts.</p>
+            <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                <input type="text" name="firstName" placeholder="First Name" required>
+                <input type="text" name="lastName" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
                 <button type="submit">Subscribe</button>
             </form>
         </div>
     </section>
 
     <!-- Call to Action Section -->
-    <section id="call-to-action">
+    <section class="call-to-action">
         <div class="container">
             <h2>Join the Movement</h2>
-            <p>Be a part of the revolution that's redefining dance through technology.</p>
-            <a href="#contact" class="cta-button">Collaborate with Us</a>
+            <p>Be a part of the revolution that's redefining performing arts through technology. Collaborate with us to enhance creativity and protect artistic integrity.</p>
+            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView();">Collaborate with Us</button>
         </div>
     </section>
 
@@ -335,30 +394,35 @@
         <div class="container">
             <h2>Get Involved</h2>
             <p>Interested in exploring how AI can enhance your practice? Contact us to become part of the future of performing arts.</p>
-            <a href="mailto:info@dancers.ai" class="cta-button">Contact Us</a>
+            <button class="cta-button" onclick="window.location.href='mailto:info@totentanz.ai'">Contact Us</button>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Dancers.AI. All rights reserved.</p>
+        <p>&copy; 2024 Totentanz (T3). All rights reserved.</p>
+        <p>Momentum Stage is based in Broward County, Florida.</p>
     </footer>
 
     <!-- Scripts -->
     <script>
         // Newsletter Form Submission
-        const newsletterForm = document.querySelector('.newsletter-form');
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = newsletterForm.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
-            if (email) {
+        function submitNewsletter(event) {
+            event.preventDefault();
+            const form = event.target;
+            const firstName = form.firstName.value.trim();
+            const lastName = form.lastName.value.trim();
+            const email = form.email.value.trim();
+            const phone = form.phone.value.trim();
+
+            if (firstName && lastName && email && phone) {
+                // Here you can add code to handle form submission, e.g., send data to a server
                 alert('Thank you for subscribing to our newsletter!');
-                emailInput.value = '';
+                form.reset();
             } else {
-                alert('Please enter a valid email address.');
+                alert('Please fill in all the fields.');
             }
-        });
+        }
     </script>
 </body>
 </html>
