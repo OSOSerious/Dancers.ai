@@ -323,7 +323,7 @@
             <h2>Performing Arts Technologies Lab Grant</h2>
             <p>The Performing Arts Technologies Lab, funded by the Doris Duke Charitable Foundation, is a grant and support system designed to expand access and nurture new methods for creating, sharing, and experiencing performing arts. Momentum Stage sponsors the T3 project under this initiative.</p>
             <p>Applications for the 2024 Lab are now closed. The Lab supports innovative ideas in jazz, contemporary dance, and theater that utilize new digital tools and production methods.</p>
-            <p>For full details, visit the <a href="https://www.dorisduke.org/news--insights/articles/doris-duke-foundation-announces-grants-to-20-innovative-theater-jazz-contemporary-dance-and-multi-disciplinary-projects-through-its-inaugural-performing-arts-technologies-lab/" class="external-link" target="_blank">Doris Duke Foundation's announcement</a>.</p>
+            <p>For full details, visit the Doris Duke Foundation's <a href="https://www.dorisduke.org/" class="external-link" target="_blank">announcement</a>.</p>
         </div>
     </section>
 
@@ -363,7 +363,7 @@
         <div class="container">
             <h2>Stay Updated with Dancers.AI</h2>
             <p>Subscribe to our newsletter to receive the latest news, updates, and exclusive insights into how technology is transforming the performing arts.</p>
-            <form class="newsletter-form" action="https://YOUR_MAILCHIMP_FORM_URL" method="POST" target="_blank">
+            <form class="newsletter-form" action="https://YOUR_FORM_HANDLING_SERVICE_URL" method="POST" target="_blank">
                 <input type="text" name="FNAME" placeholder="First Name" required>
                 <input type="text" name="LNAME" placeholder="Last Name" required>
                 <input type="email" name="EMAIL" placeholder="Email Address" required>
@@ -400,7 +400,23 @@
 
     <!-- Scripts -->
     <script>
-        // Optional: Additional JavaScript can be added here if needed
+        // Newsletter Form Submission
+        function submitNewsletter(event) {
+            event.preventDefault();
+            const form = event.target;
+            const firstName = form.FNAME.value.trim();
+            const lastName = form.LNAME.value.trim();
+            const email = form.EMAIL.value.trim();
+            const phone = form.PHONE.value.trim();
+
+            if (firstName && lastName && email && phone) {
+                // Here you can add code to handle form submission, e.g., send data to a server
+                alert('Thank you for subscribing to our newsletter!');
+                form.reset();
+            } else {
+                alert('Please fill in all the fields.');
+            }
+        }
     </script>
 </body>
 </html>
